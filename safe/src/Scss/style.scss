@@ -1,0 +1,75 @@
+$backbround-color:  #434343;
+$panel-body: #7d7d7f;
+$button-color: #63636e;
+$button-text-color: #f3f3f3;
+$screen-text-color: #434343;
+$screen-backlight-off-color: #47b2b2;
+$screen-backlight-on-color: #7fffff;
+$font-stack1: Roboto Mono Normal;
+$font-stack2: Roboto Mono Medium;
+
+
+body {
+    background-color: $backbround-color;
+}
+
+.container-color {
+    background-color: $panel-body;
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-details {
+    background-color: $panel-body;
+    width: 400px;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.segment-container {
+    height: 120px;
+    width: 100%;
+    background-color: $screen-backlight-on-color;
+    margin-bottom: 40px;
+}
+
+.top-left-segment {
+    color: $screen-text-color;
+    text-align: left;
+    padding: 15px;
+}
+
+.main-segment {
+    text-align: right;
+    padding: 15px;
+    color: $screen-text-color;
+}
+
+.key-input {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+}
+
+.keyinput-placement{
+    display: flex;
+    justify-content: center;
+}
+
+.input-button{
+    height: 80px;
+    width: 80px;
+    background-color: $button-color;
+    color: $button-text-color;
+    font-size: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #3b3a3a59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
