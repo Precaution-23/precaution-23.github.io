@@ -32,37 +32,46 @@ function KeyInput({
 
   // triggers the function that submits the code values
   const lockSafe = () => {
-    setLockProcess("Locking...")
-    submitCode(lockCode)
-    clearTimeout(timer);
-    localStorage.setItem("lockValues", lockCode)
-    setTimeout(() => {
-      setLoctStatus("Locked")
-      setLockProcess("")
-    }, 2000)
-    
-  }
+    setLockProcess("Locking...");
+    if (lockCode.length !== 6) {
+      setLockProcess("Code should be equal to 6");
+      console.log("code more than 6");
+      return;
+    }
 
+    if (
+      localStorage.getItem("lockValues") === localStorage.getItem("codeValues")
+    ) {
+      console.log("safe already locked");
+      return;
+    }
+    console.log("test")
+    submitCode(lockCode);
+    clearTimeout(timer);
+    localStorage.setItem("lockValues", lockCode);
+    setLoctStatus("Locked");
+    setLockProcess("");
+  };
 
   const unlockSafe = () => {
-    if(localStorage.getItem("lockValues") !== localStorage.getItem("unlockCodes")){
-      setLockProcess("Validating...")
-      setTimeout(()=> {
-        setLockProcess("Error")
-      }, 1500)
-    }else{
-      setLockProcess("Validating...")
+    if (
+      localStorage.getItem("lockValues") !== localStorage.getItem("unlockCodes")
+    ) {
+      setLockProcess("Validating...");
       setTimeout(() => {
-        setLockProcess("Unlocking...")
-      }, 1000)
-      setTimeout(()=> {
-        setLoctStatus("Unlocked")
-        setLockProcess("Ready")
-      }, 1500)
-      
+        setLockProcess("Error");
+      }, 1500);
+    } else {
+      setLockProcess("Validating...");
+      setTimeout(() => {
+        setLockProcess("Unlocking...");
+      }, 1000);
+      setTimeout(() => {
+        setLoctStatus("Unlocked");
+        setLockProcess("Ready");
+      }, 1500);
     }
-  }
-
+  };
 
   // function to pick values keyed in by the user
   const pickValue = (value) => {
@@ -74,12 +83,12 @@ function KeyInput({
     // updating the state of the code
     setlockCode(newInput);
     localStorage.setItem("codeValues", newInput);
-    
+
     settimer(
       setTimeout(() => {
         submitCode(newInput);
-        localStorage.setItem("unlockCodes", newInput)
-        unlockSafe()
+        localStorage.setItem("unlockCodes", newInput);
+        unlockSafe();
       }, 2000)
     );
 
@@ -88,14 +97,15 @@ function KeyInput({
 
   //clears the state that holsd the codes
   const clearCode = () => {
-    setlockCode("")
-  }
+    setlockCode("");
+  };
 
   //submit lock code
   const submitCode = (code) => {
-    console.log("#################", code)
-    clearCode()
-  }
+    clearTimeout(timer);
+    console.log("#################", code);
+    clearCode();
+  };
 
   useEffect(() => {}, []);
 
