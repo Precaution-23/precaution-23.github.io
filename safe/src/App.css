@@ -1,5 +1,6 @@
 body {
   background-color: #434343;
+  font-family: Roboto Mono Medium;
 }
 
 .container-color {
@@ -10,7 +11,7 @@ body {
   justify-content: center;
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 800px;
 }
 
 .container-details {
@@ -21,8 +22,6 @@ body {
 }
 
 .segment-container {
-  height: 120px;
-  width: 100%;
   background-color: #7fffff;
   margin-bottom: 40px;
 }
@@ -61,6 +60,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.serial-number {
+  display: flex;
+  justify-content: right;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -11,6 +11,7 @@ $font-stack2: Roboto Mono Medium;
 
 body {
     background-color: $backbround-color;
+    font-family: $font-stack2;
 }
 
 .container-color {
@@ -21,7 +22,7 @@ body {
     justify-content: center;
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: 800px;
 }
 
 .container-details {
@@ -32,8 +33,6 @@ body {
 }
 
 .segment-container {
-    height: 120px;
-    width: 100%;
     background-color: $screen-backlight-on-color;
     margin-bottom: 40px;
 }
@@ -72,4 +71,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.serial-number{
+    display: flex;
+    justify-content: right;
 }

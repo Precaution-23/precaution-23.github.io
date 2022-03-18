@@ -1,9 +1,9 @@
 import React from 'react'
 
-function SerialNumber() {
+function SerialNumber({serialNum}) {
   return (
     <div>
-        <h3>S/N: 4815162342</h3>
+        <h3 className='serial-number'>{serialNum}</h3>
     </div>
   )
 }

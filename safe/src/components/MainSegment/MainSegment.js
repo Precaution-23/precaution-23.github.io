@@ -1,9 +1,9 @@
 import React from 'react'
 
-function MainSegment() {
+function MainSegment({mainSegmentText}) {
   return (
     <div>
-        <h3 className='main-segment'>Main Segment</h3>
+        <h3 className='main-segment'>{mainSegmentText}</h3>
     </div>
   )
 }
