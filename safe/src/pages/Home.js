@@ -10,6 +10,9 @@ function Home() {
   const [codeValues, setCodeValues] = useState("")
   const [serialNumber, setSerialNumber] = useState("S/N: 4815162342")
 
+
+  // console.log("lockProcess", lockProcess)
+
   
   
   return (
@@ -20,7 +23,7 @@ function Home() {
           <TopLeftSegment topLeftSegment={loctStatus} safeCodeValues={codeValues} /> 
           <MainSegment mainSegmentText={lockProcess} />
           </div>
-          <KeyInput setLoctStatus={setLoctStatus} setLockProcess={setLockProcess} setSerialNumber={setSerialNumber} setCodeValues={setCodeValues} />
+          <KeyInput setLoctStatus={setLoctStatus} setLockProcess={setLockProcess} setSerialNumber={setSerialNumber} setCodeValues={setCodeValues} lockProcess={lockProcess} />
           <SerialNumber serialNum={serialNumber}/>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getMasterSafeCode } from "../../Services/redux";
 
 const keyBoardValues = [
   { number: 7 },
@@ -19,19 +21,15 @@ function KeyInput({
   setLockProcess,
   setSerialNumber,
   setCodeValues,
+  lockProcess
 }) {
 
-  // setting the service code for hotel staffs to change safe status
-  // to service mode when guests forget their password 
-
-  
+  const dispatch = useDispatch();
 
   // declaring of states
   const [timer, settimer] = useState(null);
   const [lockCode, setlockCode] = useState("");
 
-  //getting of service code from local storage
-  const [codeService, setCodeService] = useState(localStorage.getItem("serviceCode") ? localStorage.getItem("serviceCode") : `` )
 
   // function to lock safe
   const lockSafe = () => {
@@ -75,6 +73,8 @@ function KeyInput({
       setTimeout(() => {
         setLoctStatus("Unlocked");
         setLockProcess("Ready");
+
+        // removes specified values from local storage
         localStorage.removeItem("codeValues")
         localStorage.removeItem("lockValues")
         localStorage.removeItem("unlockCodes")
@@ -84,14 +84,21 @@ function KeyInput({
 
   // function to set safebox to service mode
   const serviceMode = () => {
-    
     // compares the keyed in vales with that of the service code values in the system
     if(localStorage.getItem("serviceCode") === localStorage.getItem("codeValues")){
       setLockProcess("Validating...");
       setTimeout(() => {
         setLockProcess("Service");
       }, 1500);
+
+      // removes specified values from local storage
+      localStorage.removeItem("codeValues")
+      localStorage.removeItem("unlockCodes")
     }
+
+    setTimeout(() => {
+      getMasterCode()
+    }, 8000)
   }
 
   // function to pick values keyed in by the user
@@ -123,12 +130,23 @@ function KeyInput({
     setlockCode("");
   };
 
-  // console.log("codeService", codeService)
+  // hit endpoint to get master code
+  const getMasterCode = async() => {
+    await dispatch(getMasterSafeCode(localStorage.getItem("codeValues")))
+    .then((response) => {
+      console.log("response", response.payload)
+    }).catch((error) => {
+      console.log("response", error)
+    })
+  }
 
 
 
   useEffect(() => {
+  // setting the service code and serial number for hotel staffs to change safe status
+  // to service mode when guests forget their password 
     localStorage.setItem("serviceCode", "000000")
+    localStorage.setItem("serialNumber", "S/N: 4815162342")
   }, []);
 
   return (
