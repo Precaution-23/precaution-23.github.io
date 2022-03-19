@@ -14,16 +14,20 @@ body {
   height: 800px;
 }
 
-.container-details {
+.container_inner-details {
   background-color: #7d7d7f;
   width: 400px;
   text-align: center;
   padding: 20px 30px;
 }
 
-.segment-container {
-  background-color: #7fffff;
+.container_segment-details {
   margin-bottom: 40px;
+  background-color: #7fffff;
+}
+
+.screen-light {
+  background-color: #7fffff;
 }
 
 .top-left-segment {
@@ -38,18 +42,18 @@ body {
   color: #434343;
 }
 
-.key-input {
+.keyInputs_buttons {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 3rem;
 }
 
-.keyinput-placement {
+.keyInputs {
   display: flex;
   justify-content: center;
 }
 
-.input-button {
+.keyInputs_button {
   height: 80px;
   width: 80px;
   background-color: #63636e;

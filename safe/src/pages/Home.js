@@ -9,12 +9,14 @@ function Home() {
   const [lockProcess, setLockProcess] = useState("")
   const [codeValues, setCodeValues] = useState("")
   const [serialNumber, setSerialNumber] = useState("S/N: 4815162342")
+
+  
   
   return (
     <>
       <div className="container">
-        <div className="container-details ">
-          <div className="segment-container">
+        <div className="container_inner-details ">
+          <div className="container_segment-details">
           <TopLeftSegment topLeftSegment={loctStatus} safeCodeValues={codeValues} /> 
           <MainSegment mainSegmentText={lockProcess} />
           </div>
