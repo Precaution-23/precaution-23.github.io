@@ -1,0 +1,74 @@
+@import "config";
+@import "buttons";
+
+body {
+    background-color: $backbround-color;
+    font-family: $font-stack2;
+}
+
+.container-color {
+    background-color: $panel-body;
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 800px;
+}
+
+.container_inner-details {
+    background-color: $panel-body;
+    width: 400px;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.container_segment-details {
+    margin-bottom: 40px;
+    background-color: $screen-backlight-on-color;
+    height: 120px;
+}
+
+.screen-light {
+    background-color: $screen-backlight-on-color;
+}
+
+.top-left-segment {
+    color: $screen-text-color;
+    text-align: left;
+    padding: 15px;
+}
+
+.main-segment {
+    text-align: right;
+    padding: 15px;
+    color: $screen-text-color;
+}
+
+.keyInputs_buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+}
+
+.keyInputs{
+    display: flex;
+    justify-content: center;
+}
+
+// the extend option was implement here
+.keyInputs_button{
+    @extend %btn;
+    background-color: $button-color;
+    color: $button-text-color;
+}
+
+.keyInputs_button:active{
+    background-color: $active-button-color
+}
+
+.serial-number{
+    display: flex;
+    justify-content: right;
+}
