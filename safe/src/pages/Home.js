@@ -5,15 +5,13 @@ import TopLeftSegment from "../components/TopleftSegment/TopLeftSegment";
 import SerialNumber from "../components/SerialNumber/SerialNumber";
 
 function Home() {
+
+   // declaring of states
   const [loctStatus, setLoctStatus] = useState("Unlocked")
-  const [lockProcess, setLockProcess] = useState("")
+  const [lockProcess, setLockProcess] = useState("Ready")
   const [codeValues, setCodeValues] = useState("")
   const [serialNumber, setSerialNumber] = useState(localStorage.getItem("serialNumber"))
 
-
-  // console.log("lockProcess", lockProcess)
-
-  
   
   return (
     <>
@@ -23,7 +21,7 @@ function Home() {
           <TopLeftSegment topLeftSegment={loctStatus} safeCodeValues={codeValues} /> 
           <MainSegment mainSegmentText={lockProcess} />
           </div>
-          <KeyInput setLoctStatus={setLoctStatus} setLockProcess={setLockProcess} setSerialNumber={setSerialNumber} setCodeValues={setCodeValues} lockProcess={lockProcess} />
+          <KeyInput setLoctStatus={setLoctStatus} setLockProcess={setLockProcess} lockProcess={lockProcess} />
           <SerialNumber serialNum={serialNumber}/>
         </div>
       </div>
