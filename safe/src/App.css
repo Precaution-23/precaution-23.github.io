@@ -7,6 +7,8 @@
   align-items: center;
   height: 80px;
   width: 80px;
+  align-items: center;
+  cursor: pointer;
 }
 
 body {
@@ -35,6 +37,7 @@ body {
 .container_segment-details {
   margin-bottom: 40px;
   background-color: #7fffff;
+  height: 120px;
 }
 
 .screen-light {
@@ -67,6 +70,10 @@ body {
 .keyInputs_button {
   background-color: #63636e;
   color: #f3f3f3;
+}
+
+.keyInputs_button:active {
+  background-color: #a5a5bd;
 }
 
 .serial-number {

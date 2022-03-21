@@ -1,10 +1,6 @@
 @import "config";
 @import "buttons";
 
-// this design was very simple and small so there wasnt enough
-// options to implement the extend way of reusing classes
-
-
 body {
     background-color: $backbround-color;
     font-family: $font-stack2;
@@ -31,6 +27,7 @@ body {
 .container_segment-details {
     margin-bottom: 40px;
     background-color: $screen-backlight-on-color;
+    height: 120px;
 }
 
 .screen-light {
@@ -65,6 +62,10 @@ body {
     @extend %btn;
     background-color: $button-color;
     color: $button-text-color;
+}
+
+.keyInputs_button:active{
+    background-color: $active-button-color
 }
 
 .serial-number{
