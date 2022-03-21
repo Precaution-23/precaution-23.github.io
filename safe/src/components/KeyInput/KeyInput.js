@@ -95,10 +95,6 @@ function KeyInput({
       localStorage.removeItem("codeValues")
       localStorage.removeItem("unlockCodes")
     }
-
-    setTimeout(() => {
-      getMasterCode()
-    }, 8000)
   }
 
   // function to pick values keyed in by the user
@@ -112,15 +108,28 @@ function KeyInput({
     setlockCode(newInput);
     localStorage.setItem("codeValues", newInput);
 
-    // setting the state of the timer
+    if(lockProcess === "Service"){
+      console.log("passing through the service block")
+      setTimeout(() => {
+        getMasterCode()
+        localStorage.removeItem("codeValues")
+      }, 10000)
+    }else{
+          // setting the state of the timer
     settimer(
       setTimeout(() => {
         clearCode()
         localStorage.setItem("unlockCodes", newInput);
-        unlockSafe();
-        serviceMode()
+        if(localStorage.getItem("codeValues") === "000000"){
+          serviceMode()
+        }else{
+          unlockSafe();
+        }
       }, 1200)
     );
+    }
+
+
 
     return;
   };
@@ -134,7 +143,13 @@ function KeyInput({
   const getMasterCode = async() => {
     await dispatch(getMasterSafeCode(localStorage.getItem("codeValues")))
     .then((response) => {
-      console.log("response", response.payload)
+      console.log("response", response.payload.sn)
+      if(response.payload.sn === localStorage.getItem("serialNumber")){
+        localStorage.setItem("serialNumber", response.payload.sn)
+        console.log("serial number matches")
+      }else{
+        console.log("serial number doesnt match")
+      }
     }).catch((error) => {
       console.log("response", error)
     })

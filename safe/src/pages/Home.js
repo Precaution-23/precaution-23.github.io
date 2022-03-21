@@ -8,7 +8,7 @@ function Home() {
   const [loctStatus, setLoctStatus] = useState("Unlocked")
   const [lockProcess, setLockProcess] = useState("")
   const [codeValues, setCodeValues] = useState("")
-  const [serialNumber, setSerialNumber] = useState("S/N: 4815162342")
+  const [serialNumber, setSerialNumber] = useState(localStorage.getItem("serialNumber"))
 
 
   // console.log("lockProcess", lockProcess)
