@@ -16,8 +16,8 @@ function Home() {
   return (
     <>
       <div className="container">
-        <div className="container_inner-details ">
-          <div className="container_segment-details">
+        <div className="container_inner-details">
+          <div className="container_segment-details timertext">
           <TopLeftSegment topLeftSegment={loctStatus} safeCodeValues={codeValues} /> 
           <MainSegment mainSegmentText={lockProcess} />
           </div>

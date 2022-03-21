@@ -39,5 +39,42 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script type="text/javascript">
+      let timer, currSeconds = 0;
+
+      function resetTimer() {
+
+          /* Hide the timer text */
+          document.querySelector(".timertext").classList.remove("screen-light-off")
+          document.querySelector(".timertext").classList.add("screen-light-on")
+
+          /* Clear the previous interval */
+          clearInterval(timer);
+
+          /* Reset the seconds of the timer */
+          currSeconds = 0;
+
+          /* Set a new interval */
+          timer = 
+              setInterval(startIdleTimer, 5000);
+      }
+
+      // Define the events that
+      // would reset the timer
+      window.onload = resetTimer;
+      window.onmousemove = resetTimer;
+      window.onmousedown = resetTimer;
+      window.ontouchstart = resetTimer;
+      window.onclick = resetTimer;
+      window.onkeypress = resetTimer;
+
+      function startIdleTimer() {
+
+          /* Display the timer text */
+          document.querySelector(".timertext").classList.remove("screen-light-on")
+          document.querySelector(".timertext").classList.add("screen-light-off")
+      }
+  </script>
   </body>
 </html>

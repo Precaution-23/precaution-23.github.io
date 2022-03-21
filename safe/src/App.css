@@ -40,8 +40,12 @@ body {
   height: 120px;
 }
 
-.screen-light {
+.screen-light-on {
   background-color: #7fffff;
+}
+
+.screen-light-off {
+  background-color: #47b2b2;
 }
 
 .top-left-segment {

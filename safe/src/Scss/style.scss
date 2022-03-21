@@ -30,8 +30,12 @@ body {
     height: 120px;
 }
 
-.screen-light {
+.screen-light-on {
     background-color: $screen-backlight-on-color;
+}
+
+.screen-light-off {
+    background-color: $screen-backlight-off-color;
 }
 
 .top-left-segment {
@@ -72,3 +76,4 @@ body {
     display: flex;
     justify-content: right;
 }
+
