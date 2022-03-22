@@ -10,7 +10,7 @@ function TopLeftSegment({topLeftSegment, safeCodeValues}) {
   
   return (
     <div>
-        <h3 className='top-left-segment '>{topLeftSegment}</h3>
+        <h3 className='top-left-segment' data-testid="topLeftSegment">{topLeftSegment}</h3>
 
         <div className=''></div>
     </div>

@@ -168,6 +168,7 @@ function KeyInput({
           return (
             <div key={index}>
               <button
+              data-testid="buttonValues"
                 className="keyInputs_button"
                 onClick={() => {
                   pickValue(value);
@@ -178,7 +179,7 @@ function KeyInput({
             </div>
           );
         })}
-        <button className="keyInputs_button" data-testId="lockButton" onClick={lockSafe} >
+        <button className="keyInputs_button" data-testid="lockButton" onClick={lockSafe} >
           L
         </button>
       </div>
