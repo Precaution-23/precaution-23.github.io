@@ -1,6 +1,7 @@
 @import "config";
 @import "buttons";
-
+@import "mobile";
+  
 body {
     background-color: $backbround-color;
     font-family: $font-stack2;
@@ -19,7 +20,6 @@ body {
 
 .container_inner-details {
     background-color: $panel-body;
-    width: 400px;
     text-align: center;
     padding: 20px 30px;
 }
@@ -46,7 +46,7 @@ body {
 
 .main-segment {
     text-align: right;
-    padding: 15px;
+    padding: 0 15px;
     color: $screen-text-color;
 }
 

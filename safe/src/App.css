@@ -11,6 +11,40 @@
   cursor: pointer;
 }
 
+.keyInputs_button {
+  font-size: 50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 2px solid #3b3a3a59;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 375px) {
+  .keyInputs_buttons {
+    gap: 1rem !important;
+  }
+}
+@media (max-width: 375px) {
+  .container_inner-details {
+    padding: 10px 10px !important;
+  }
+}
+@media (max-width: 375px) {
+  .keyInputs_button {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+@media (max-width: 375px) {
+  .container_inner-details {
+    padding: 20px 30px !important;
+  }
+}
 body {
   background-color: #434343;
   font-family: Roboto Mono Medium;
@@ -29,7 +63,6 @@ body {
 
 .container_inner-details {
   background-color: #7d7d7f;
-  width: 400px;
   text-align: center;
   padding: 20px 30px;
 }
@@ -56,7 +89,7 @@ body {
 
 .main-segment {
   text-align: right;
-  padding: 15px;
+  padding: 0 15px;
   color: #434343;
 }
 

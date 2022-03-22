@@ -1,0 +1,27 @@
+@import "buttons";
+
+@media (max-width: 375px ) {
+    .keyInputs_buttons {
+        gap: 1rem !important;
+    }
+}
+
+@media (max-width: 375px ) {
+    .container_inner-details {
+        padding: 10px 10px !important;
+    }
+}
+
+@media (max-width: 375px ) {
+     %btn {
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
+
+@media (max-width: 375px ) {
+    .container_inner-details {
+        padding: 20px 30px !important;
+   }
+}
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../Services/redux/reduxHooks";
 import { getMasterSafeCode } from "../../Services/redux";
 
 const keyBoardValues = [
@@ -21,7 +21,7 @@ function KeyInput({
   setLockProcess,
   lockProcess,
 }) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // declaring of states
   const [timer, settimer] = useState(null);
@@ -31,13 +31,14 @@ function KeyInput({
   const lockSafe = () => {
     // checks if the length of code is not equal 6
     if (lockCode.length !== 6) {
-      setLockProcess("Code should be equal to 6");
+      setLockProcess("Code should be equal to 6 digits");
       clearTimeout(timer);
+      setTimeout(()=> {
+        setLockProcess("");
+        window.location.reload()
+      }, 1500)
       return;
-    }
-
-    // checks if the length of code is equal to 6
-    if (lockCode.length === 6) {
+    }else{
       setLockProcess("Locking...");
       clearCode();
       clearTimeout(timer);
@@ -47,7 +48,8 @@ function KeyInput({
         setLockProcess("");
       }, 1000);
     }
-  };
+  }
+
 
   // function to unlock safe
   const unlockSafe = () => {
@@ -104,7 +106,6 @@ function KeyInput({
     localStorage.setItem("codeValues", newInput);
 
     if (lockProcess === "Service") {
-      console.log("passing through the service block");
       setTimeout(() => {
         getMasterCode();
         localStorage.removeItem("codeValues");
@@ -138,6 +139,10 @@ function KeyInput({
       .then((response) => {
         if (response.payload.sn === localStorage.getItem("serialNumber")) {
           localStorage.setItem("serialNumber", response.payload.sn);
+          setTimeout(() => {
+            setLockProcess("Ready");
+            setLoctStatus("Unlocked");
+          }, 2000)
           console.log("serial number matches");
         } else {
           console.log("serial number doesnt match");
@@ -148,12 +153,13 @@ function KeyInput({
       });
   };
 
+
   useEffect(() => {
     // setting the service code and serial number for hotel staffs to change safe status
     // to service mode when guests forget their password
     localStorage.setItem("serviceCode", "000000");
     localStorage.setItem("serialNumber", "S/N: 4815162342");
-  }, []);
+  }, [lockCode]);
 
   return (
     <div className="keyInputs">
@@ -172,7 +178,7 @@ function KeyInput({
             </div>
           );
         })}
-        <button className="keyInputs_button" onClick={lockSafe}>
+        <button className="keyInputs_button" data-testId="lockButton" onClick={lockSafe} >
           L
         </button>
       </div>
